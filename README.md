@@ -45,6 +45,7 @@ The credit risk analysis challenge presents an unbalanced classification problem
   * This model also struggles with precision with a low F1 score with regards to identifying high risk loans.  High risk loans are a minority set within the data, so as with the previous algorithm, this algorithm also skews toward missing high risk loans in part because of the data composition, where the algorithm overly interpolates the majority data set.  SMOTE performs marginally better than RandomOverSampler.
 
 * ClusterCentroids (undersample)
+    * Confusion Matrix:
 
   || Predicted True | Predicted False |
   | --- | --- | --- |
@@ -62,6 +63,7 @@ The credit risk analysis challenge presents an unbalanced classification problem
   * This model does not perform well compared with the prior algorithms, with a low accuracy and precision.  In undersampling, the algorithm has not successfully reduced the dataset in a balanced fashion when establishing the centroid aggregates.
 
 * SMOTEENN (undersample)
+    * Confusion Matrix:
 
   || Predicted True | Predicted False |
   | --- | --- | --- |
@@ -79,6 +81,7 @@ The credit risk analysis challenge presents an unbalanced classification problem
   * The SMOTEENN algorithm yields better results with a higher accuracy.  It has limited precision like the other models, but model has a better ability to identify high risk loans even if at the expense of missing some high risk loans.  With sufficiently noisy data, the SMOTEENN model may also be vulnerable to undue effects of data in the model, which may be majority low risk.
 
 * BalancedRandomForestClassifier (ensemble classifier)
+    * Confusion Matrix:
 
   || Predicted True | Predicted False |
   | --- | --- | --- |
@@ -96,6 +99,7 @@ The credit risk analysis challenge presents an unbalanced classification problem
   * The BalancedRandomForestClassifier algorithm yields better results with a higher accuracy and recall scores.  The method of balancing the data and undersampling yields a model that lessens the effects of the predominantly low risk records within the data.
 
 * EasyEnsembleClassifier (ensemble classifier)
+    * Confusion Matrix:
 
   || Predicted True | Predicted False |
   | --- | --- | --- |
@@ -116,4 +120,4 @@ The credit risk analysis challenge presents an unbalanced classification problem
 
 ```Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. If you do not recommend any of the models, justify your reasoning.  There is a summary of the results (2 pt).  There is a recommendation on which model to use, or there is no recommendation with a justification (3 pt)```
 
-All of the models presented here are sensitive to the imbalance of credit risk data because the data inherently skews toward low risk.  Because of this differential, undersampling outperforms oversampling methods by better omitting excess and outlier low risk parts of the data.  However, given the complexity and number of features within the data and model, ensemble methods outperform the over- and under-sampling methods by transforming weak learners into a more robust model.  Although the approach resamples, thus still risks skewing toward the existing distribution within the data, EasyEnsembleClassifier is the recommended choice amongst these options because of its higher collective metrics with regards to Balances Accuracy Scores, Precision, and Recall Scores.  Lastly, it is possible that the use of scalers may improve performance matches.
+All of the models presented here are sensitive to the imbalance of credit risk data because the data inherently skews toward low risk.  Because of this differential, undersampling outperforms oversampling methods by better omitting excess and outlier low risk parts of the data.  However, given the complexity and number of features within the data and model, ensemble methods outperform the over- and under-sampling methods by transforming weak learners into a more robust model.  Although the approach resamples, thus still risks skewing toward the existing distribution within the data, `EasyEnsembleClassifier` is the recommended choice amongst these options because of its higher collective metrics with regards to Balanced Accuracy Scores, Precision, and Recall Scores.  Lastly, it is possible that the use of scalers may improve performance matches.
