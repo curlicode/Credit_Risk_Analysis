@@ -28,6 +28,7 @@ The credit risk analysis challenge presents an unbalanced classification problem
 
 * SMOTE (oversample)
   * Confusion Matrix:
+
   || Predicted True | Predicted False |
   | --- | --- | --- |
   | Actually True | 46 (TP) | 42 (FN) |
